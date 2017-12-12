@@ -31,9 +31,7 @@ class NoteFileViewController: UIViewController {
         
         let pdfData = drawPDFUsingPrintPageRenderer(printPageRenderer: printPageRenderer)
         
-        let tempPath = NSTemporaryDirectory()
-        
-        let url: URL = URL(fileURLWithPath: tempPath).appendingPathComponent("file.pdf")
+        let url: URL = getFileURL(name: "file.pdf")!
         
         do {
             try pdfData?.write(to: url, options: .atomic)
